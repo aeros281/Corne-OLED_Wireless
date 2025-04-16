@@ -136,8 +136,8 @@
             #binding-cells = <0>;
             bindings = <&none &kp G &kp I &kp T &kp SPACE &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE &kp MINUS &kp MINUS &kp A &kp M &kp E &kp N &kp D &kp SPACE &kp MINUS &kp MINUS &kp N &kp O &kp MINUS &kp E &kp D &kp I &kp T>;
             label = "GIT_AMEND";
-            tap-ms = <10>;
-            wait-ms = <10>;
+            tap-ms = <5>;
+            wait-ms = <5>;
         };
 
         macro_vim_save: macro_vim_save {
@@ -210,16 +210,16 @@
 &kp TAB           &kp Q        &kp W            &kp E           &kp R              &kp T                          &kp Y                   &kp U          &kp I         &kp O            &kp P           &kp MINUS
 &mt LCTRL ESCAPE  &hml LCMD A  &hml LEFT_ALT S  &hml LCTRL D    &hml LEFT_SHIFT F  &kp G                          &kp H                   &hmr LSHIFT J  &hmr LCTRL K  &hmr LEFT_ALT L  &hmr LCMD SEMI  &kp SQT
 &kp LSHFT         &kp Z        &kp X            &kp C           &kp V              &kp B                          &kp N                   &kp M          &kp COMMA     &kp DOT          &kp FSLH        &layer_mt RIGHT_SHIFT 1
-                                                &lt 6 LEFT_ALT  &lt 5 ENTER        &lt_prefer_hold 2 BACKSPACE    &lt_prefer_tap 3 SPACE  &mo 9          &lt 7 LCMD
+                                                &lt 6 LEFT_ALT  &lt 5 ENTER        &lt_prefer_hold 2 BACKSPACE    &lt_prefer_tap 3 SPACE  &mo 7          &lt 9 LCMD
             >;
         };
 
         mac {
             bindings = <
-&trans           &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
-&mt LCMD ESCAPE  &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
-&trans           &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &layer_mt LEFT_SHIFT 0
-                                 &mo 6   &trans  &trans    &lt 4 SPACE  &trans  &mo 7
+&trans           &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &trans
+&mt LCMD ESCAPE  &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &trans
+&trans           &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &layer_mt LEFT_SHIFT 0
+                                 &trans  &trans  &trans    &lt_prefer_tap 4 SPACE  &trans  &trans
             >;
         };
 
@@ -283,6 +283,24 @@
             >;
         };
 
+        tmux {
+            bindings = <
+&tmux N    &tmux Q  &tmux W  &tmux E  &kp R                &kp T     &kp Y          &kp U         &kp I           &tmux O         &tmux RIGHT_BRACKET  &tmux LEFT_BRACKET
+&trans     &kp A    &tmux S  &tmux D  &tmux F              &kp G     &tmux PERCENT  &kp J         &kp K           &kp L           &tmux SEMICOLON      &tmux COLON
+&kp LC(B)  &kp Z    &kp X    &kp C    &tmux DOUBLE_QUOTES  &kp B     &tmux DOLLAR   &kp NUMBER_1  &tmux NUMBER_2  &tmux NUMBER_3  &kp FSLH             &trans
+                             &trans   &trans               &trans    &trans         &trans        &trans
+            >;
+        };
+
+        media {
+            bindings = <
+&trans  &trans  &trans             &trans      &trans           &kp C_BRIGHTNESS_INC    &trans  &trans      &trans            &trans      &trans  &trans
+&trans  &trans  &trans             &trans      &trans           &kp C_BRIGHTNESS_DEC    &trans  &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT  &trans  &trans
+&trans  &trans  &kp C_VOLUME_DOWN  &kp C_MUTE  &kp C_VOLUME_UP  &trans                  &trans  &trans      &trans            &trans      &trans  &trans
+                                   &trans      &trans           &trans                  &trans  &trans      &trans
+            >;
+        };
+
         sys {
             bindings = <
 &bt BT_CLR_ALL  &kp N1        &kp N2        &kp N3        &kp N4        &sys_reset      &sys_reset  &to 0     &kp N8    &to 1      &kp N0  &kp BSPC
@@ -291,22 +309,18 @@
                                             &kp LGUI      &trans        &kp SPACE       &kp RET     &trans    &kp RALT
             >;
         };
-
-        tmux {
-            bindings = <
-&tmux N    &tmux Q  &tmux W  &tmux E         &kp R                &kp T             &kp Y          &kp U   &kp I    &tmux O  &tmux RIGHT_BRACKET  &tmux LEFT_BRACKET
-&trans     &kp A    &tmux S  &tmux D         &tmux F              &kp G             &tmux PERCENT  &kp J   &kp K    &kp L    &tmux SEMICOLON      &tmux COLON
-&kp LC(B)  &kp Z    &kp X    &kp C           &tmux DOUBLE_QUOTES  &kp B             &tmux DOLLAR   &kp M   &tmux P  &tmux N  &kp FSLH             &trans
-                             &tmux NUMBER_3  &tmux NUMBER_2       &tmux NUMBER_1    &trans         &trans  &trans
-            >;
-        };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         to_sys {
-            if-layers = <6 7>;
+            if-layers = <6 9>;
+            then-layer = <10>;
+        };
+
+        tmux {
+            if-layers = <5 7>;
             then-layer = <8>;
         };
     };
