@@ -14,8 +14,6 @@
 
 &mmv { acceleration-exponent = <2>; };
 
-&lt { flavor = "balanced"; };
-
 / {
     behaviors {
         hml: homewrow_mods_left {
@@ -24,12 +22,12 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             hold-trigger-key-positions = <6 18 30 39 40 41 31 19 7 8 20 32 33 21 9 10 22 34 35 23 11>;
             hold-trigger-on-release;
             flavor = "balanced";
-            require-prior-idle-ms = <125>;
-            quick-tap-ms = <100>;
+            require-prior-idle-ms = <115>;
+            quick-tap-ms = <175>;
         };
 
         hmr: homewrow_mods_right {
@@ -38,12 +36,12 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
             hold-trigger-on-release;
             flavor = "balanced";
-            require-prior-idle-ms = <125>;
-            quick-tap-ms = <100>;
+            require-prior-idle-ms = <115>;
+            quick-tap-ms = <175>;
         };
 
         layer_mt: layer_mt {
@@ -53,7 +51,6 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <125>;
         };
 
         lt_prefer_tap: lt_prefer_tap {
@@ -64,6 +61,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
+            require-prior-idle-ms = <75>;
         };
 
         lt_prefer_hold: lt_prefer_hold {
@@ -74,6 +72,17 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             hold-while-undecided;
+        };
+
+        mt_prefer_tap: mt_prefer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_PREFER_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <75>;
         };
     };
 
@@ -92,8 +101,8 @@
             layers = <0 1>;
         };
 
-        combo_esc {
-            bindings = <&kp ESCAPE>;
+        combo_rshift {
+            bindings = <&sk RSHIFT>;
             key-positions = <18 19>;
             require-prior-idle-ms = <125>;
             layers = <0 1>;
@@ -126,6 +135,13 @@
         combo_cap_words {
             bindings = <&caps_word>;
             key-positions = <24 25>;
+            layers = <0 1>;
+        };
+
+        combo_lshift {
+            bindings = <&sk LEFT_SHIFT>;
+            key-positions = <16 17>;
+            require-prior-idle-ms = <125>;
             layers = <0 1>;
         };
     };
@@ -223,19 +239,19 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB           &kp Q        &kp W            &kp E           &kp R              &kp T                          &kp Y                   &kp U          &kp I         &kp O            &kp P           &kp MINUS
-&mt LCTRL ESCAPE  &hml LCMD A  &hml LEFT_ALT S  &hml LCTRL D    &hml LEFT_SHIFT F  &kp G                          &kp H                   &hmr LSHIFT J  &hmr LCTRL K  &hmr LEFT_ALT L  &hmr LCMD SEMI  &kp SQT
-&kp LSHFT         &kp Z        &kp X            &kp C           &kp V              &kp B                          &kp N                   &kp M          &kp COMMA     &kp DOT          &kp FSLH        &layer_mt RIGHT_SHIFT 1
-                                                &lt 6 LEFT_ALT  &lt 5 ENTER        &lt_prefer_hold 2 BACKSPACE    &lt_prefer_tap 3 SPACE  &mo 7          &lt 9 LCMD
+&kp TAB                      &kp Q        &kp W            &kp E           &kp R              &kp T                          &kp Y                   &kp U          &kp I         &kp O            &kp P           &kp MINUS
+&mt_prefer_tap LCTRL ESCAPE  &hml LCMD A  &hml LEFT_ALT S  &hml LCTRL D    &hml LEFT_SHIFT F  &kp G                          &kp H                   &hmr LSHIFT J  &hmr LCTRL K  &hmr LEFT_ALT L  &hmr LCMD SEMI  &kp SQT
+&kp LSHFT                    &kp Z        &kp X            &kp C           &kp V              &kp B                          &kp N                   &kp M          &kp COMMA     &kp DOT          &kp FSLH        &layer_mt RIGHT_SHIFT 1
+                                                           &lt 6 LEFT_ALT  &lt 5 ENTER        &lt_prefer_hold 2 BACKSPACE    &lt_prefer_tap 3 SPACE  &mo 7          &lt 9 LCMD
             >;
         };
 
         mac {
             bindings = <
-&trans           &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &trans
-&mt LCMD ESCAPE  &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &trans
-&trans           &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &layer_mt LEFT_SHIFT 0
-                                 &trans  &trans  &trans    &lt_prefer_tap 4 SPACE  &trans  &trans
+&trans                      &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &trans
+&mt_prefer_tap LCMD ESCAPE  &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &trans
+&trans                      &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans  &trans  &layer_mt LEFT_SHIFT 0
+                                            &trans  &trans  &trans    &lt_prefer_tap 4 SPACE  &trans  &trans
             >;
         };
 
