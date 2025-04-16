@@ -14,6 +14,8 @@
 
 &mmv { acceleration-exponent = <2>; };
 
+&lt { tapping-term-ms = <150>; };
+
 / {
     behaviors {
         hml: homewrow_mods_left {
@@ -132,6 +134,13 @@
 
             label = "MACRO_ALT_TAB";
         };
+
+        tmux: tmux {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&none &kp LC(B) &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "TMUX";
+        };
     };
 
     keymap {
@@ -148,7 +157,7 @@
 &kp TAB           &kp Q        &kp W            &kp E         &kp R              &kp T              &kp Y        &kp U          &kp I         &kp O            &kp P           &kp MINUS
 &mt LCTRL ESCAPE  &hml LCMD A  &hml LEFT_ALT S  &hml LCTRL D  &hml LEFT_SHIFT F  &kp G              &kp H        &hmr LSHIFT J  &hmr LCTRL K  &hmr LEFT_ALT L  &hmr LCMD SEMI  &kp SQT
 &kp LSHFT         &kp Z        &kp X            &kp C         &kp V              &kp B              &kp N        &kp M          &kp COMMA     &kp DOT          &kp FSLH        &layer_mt RIGHT_SHIFT 1
-                                                &lt 6 LCMD    &lt 5 ENTER        &lt 2 BACKSPACE    &lt 3 SPACE  &mo 2          &lt 7 LCMD
+                                                &lt 6 LCMD    &lt 5 ENTER        &lt 2 BACKSPACE    &lt 3 SPACE  &mo 9          &lt 7 LCMD
             >;
         };
 
@@ -227,6 +236,15 @@
 &bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
 &kp LSHFT       &trans        &trans        &trans        &trans        &trans          &trans      &trans    &trans    &trans     &trans  &trans
                                             &kp LGUI      &trans        &kp SPACE       &kp RET     &trans    &kp RALT
+            >;
+        };
+
+        tmux {
+            bindings = <
+&tmux N    &tmux Q  &tmux W  &tmux E         &kp R                &kp T             &kp Y          &kp U   &kp I    &tmux O  &tmux RIGHT_BRACKET  &tmux LEFT_BRACKET
+&trans     &kp A    &tmux S  &tmux D         &tmux F              &kp G             &tmux PERCENT  &kp J   &kp K    &kp L    &tmux SEMICOLON      &tmux COLON
+&kp LC(B)  &kp Z    &kp X    &kp C           &tmux DOUBLE_QUOTES  &kp B             &tmux DOLLAR   &kp M   &tmux P  &tmux N  &kp FSLH             &trans
+                             &tmux NUMBER_3  &tmux NUMBER_2       &tmux NUMBER_1    &trans         &trans  &trans
             >;
         };
     };
