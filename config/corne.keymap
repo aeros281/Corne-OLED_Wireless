@@ -285,10 +285,10 @@
 
         tmux {
             bindings = <
-&tmux N    &tmux Q  &tmux W  &tmux E  &kp R                &kp T     &kp Y          &kp U         &kp I           &tmux O         &tmux RIGHT_BRACKET  &tmux LEFT_BRACKET
-&trans     &kp A    &tmux S  &tmux D  &tmux F              &kp G     &tmux PERCENT  &kp J         &kp K           &kp L           &tmux SEMICOLON      &tmux COLON
-&kp LC(B)  &kp Z    &kp X    &kp C    &tmux DOUBLE_QUOTES  &kp B     &tmux DOLLAR   &kp NUMBER_1  &tmux NUMBER_2  &tmux NUMBER_3  &kp FSLH             &trans
-                             &trans   &trans               &trans    &trans         &trans        &trans
+&tmux N    &tmux Q  &tmux W  &tmux E  &kp R                &kp T     &kp Y          &kp U           &kp I           &tmux O         &tmux RIGHT_BRACKET  &tmux LEFT_BRACKET
+&trans     &kp A    &tmux S  &tmux D  &tmux F              &kp G     &tmux PERCENT  &kp J           &kp K           &kp L           &tmux SEMICOLON      &tmux COLON
+&kp LC(B)  &kp Z    &kp X    &kp C    &tmux DOUBLE_QUOTES  &kp B     &tmux DOLLAR   &tmux NUMBER_1  &tmux NUMBER_2  &tmux NUMBER_3  &kp FSLH             &trans
+                             &trans   &trans               &trans    &trans         &trans          &trans
             >;
         };
 
