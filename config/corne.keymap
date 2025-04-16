@@ -57,7 +57,7 @@
 
         combo_esc {
             bindings = <&kp ESCAPE>;
-            key-positions = <19 20>;
+            key-positions = <13 12>;
             require-prior-idle-ms = <125>;
             layers = <0 1>;
         };
@@ -132,19 +132,19 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q        &kp W            &kp E         &kp R              &kp T              &kp Y        &kp U          &kp I         &kp O            &kp P           &kp MINUS
-&kp LCTRL  &hml LCMD A  &hml LEFT_ALT S  &hml LCTRL D  &hml LEFT_SHIFT F  &kp G              &kp H        &hmr LSHIFT J  &hmr LCTRL K  &hmr LEFT_ALT L  &hmr LCMD SEMI  &kp SQT
-&kp LSHFT  &kp Z        &kp X            &kp C         &kp V              &kp B              &kp N        &kp M          &kp COMMA     &kp DOT          &kp FSLH        &kp RIGHT_SHIFT
-                                         &lt 6 LCMD    &lt 5 ENTER        &lt 2 BACKSPACE    &lt 3 SPACE  &mo 2          &lt 7 LCMD
+&kp TAB           &kp Q        &kp W            &kp E         &kp R              &kp T              &kp Y        &kp U          &kp I         &kp O            &kp P           &kp MINUS
+&mt LCTRL ESCAPE  &hml LCMD A  &hml LEFT_ALT S  &hml LCTRL D  &hml LEFT_SHIFT F  &kp G              &kp H        &hmr LSHIFT J  &hmr LCTRL K  &hmr LEFT_ALT L  &hmr LCMD SEMI  &kp SQT
+&kp LSHFT         &kp Z        &kp X            &kp C         &kp V              &kp B              &kp N        &kp M          &kp COMMA     &kp DOT          &kp FSLH        &kp RIGHT_SHIFT
+                                                &lt 6 LCMD    &lt 5 ENTER        &lt 2 BACKSPACE    &lt 3 SPACE  &mo 2          &lt 7 LCMD
             >;
         };
 
         mac {
             bindings = <
-&trans    &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
-&kp LCMD  &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
-&trans    &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
-                          &mo 6   &trans  &trans    &lt 4 SPACE  &trans  &mo 7
+&trans           &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
+&mt LCMD ESCAPE  &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
+&trans           &trans  &trans  &trans  &trans  &trans    &trans       &trans  &trans  &trans  &trans  &trans
+                                 &mo 6   &trans  &trans    &lt 4 SPACE  &trans  &mo 7
             >;
         };
 
