@@ -13,9 +13,11 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mmv {
-    acceleration-exponent = <1>;
+    acceleration-exponent = <1.5>;
     time-to-max-speed-ms = <1000>;
 };
+
+&sk { quick-release; };
 
 / {
     behaviors {
@@ -135,16 +137,16 @@
             layers = <1>;
         };
 
-        combo_cap_words {
-            bindings = <&caps_word>;
-            key-positions = <24 25>;
-            layers = <0 1>;
-        };
-
         combo_lshift {
             bindings = <&sk LEFT_SHIFT>;
             key-positions = <16 17>;
             require-prior-idle-ms = <125>;
+            layers = <0 1>;
+        };
+
+        combo_cap_words {
+            bindings = <&caps_word>;
+            key-positions = <16 17 18 19>;
             layers = <0 1>;
         };
     };
