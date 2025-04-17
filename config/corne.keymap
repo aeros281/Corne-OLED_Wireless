@@ -277,9 +277,9 @@
 
         up_win {
             bindings = <
-&kp LS(LA(LC(LG(TAB))))  &kp LA(F4)            &kp LC(LS(TAB))  &kp LC(LS(A))   &kp LC(TAB)  &kp LG(TAB)          &kp PG_UP      &kp LC(LEFT_ARROW)  &kp UP_ARROW  &kp LC(RIGHT)  &trans  &kp DELETE
-&kp LS(LCMD)             &sk LCMD              &sk LEFT_ALT     &sk LCTRL       &sk LSHIFT   &kp CLCK             &kp PAGE_DOWN  &kp LEFT_ARROW      &kp DOWN      &kp RIGHT      &trans  &trans
-&kp LC(ESCAPE)           &macro_vim_clipboard  &trans           &kp LC(C)       &kp LC(V)    &kp LC(X)            &trans         &kp HOME            &trans        &kp END        &trans  &trans
+&kp LS(LA(LC(LG(TAB))))  &kp LA(F4)            &kp LC(LS(TAB))  &kp LC(LS(A))   &kp LC(TAB)  &kp LG(TAB)          &kp PG_UP      &kp LC(LEFT_ARROW)  &kp UP_ARROW  &kp LC(RIGHT)  &kp LC(EQUAL)  &kp DELETE
+&kp LS(LCMD)             &sk LCMD              &sk LEFT_ALT     &sk LCTRL       &sk LSHIFT   &kp CLCK             &kp PAGE_DOWN  &kp LEFT_ARROW      &kp DOWN      &kp RIGHT      &kp LC(MINUS)  &trans
+&kp LC(ESCAPE)           &macro_vim_clipboard  &trans           &kp LC(C)       &kp LC(V)    &kp LC(X)            &trans         &kp HOME            &trans        &kp END        &kp LC(N0)     &trans
                                                                 &macro_alt_tab  &caps_word   &kp LC(BACKSPACE)    &trans         &trans              &trans
             >;
         };
@@ -346,6 +346,15 @@
                                             &kp LGUI      &trans        &kp SPACE       &kp RET     &trans    &kp RALT
             >;
         };
+
+        num_alt {
+            bindings = <
+&trans  &trans    &trans        &trans     &trans      &trans    &trans        &kp N7  &kp N8  &kp N9  &kp MINUS  &trans
+&trans  &sk LCMD  &sk LEFT_ALT  &sk LCTRL  &sk LSHIFT  &trans    &trans        &kp N4  &kp N5  &kp N6  &kp PLUS   &trans
+&trans  &trans    &trans        &trans     &trans      &trans    &kp ASTERISK  &kp N1  &kp N2  &kp N3  &kp FSLH   &trans
+                                &trans     &trans      &trans    &trans        &trans  &kp N0
+            >;
+        };
     };
 
     conditional_layers {
@@ -359,6 +368,11 @@
         tmux {
             if-layers = <5 7>;
             then-layer = <8>;
+        };
+
+        num_alt {
+            if-layers = <6 7>;
+            then-layer = <11>;
         };
     };
 };
