@@ -262,7 +262,7 @@
 
         up_mac {
             bindings = <
-&kp LA(TAB)       &kp LG(Q)  &kp LC(LS(TAB))  &kp LG(LS(A))   &kp LC(TAB)  &kp LC(UP_ARROW)     &kp PG_UP      &kp LA(LEFT_ARROW)  &kp UP_ARROW  &kp LA(RIGHT)  &trans  &trans
+&kp LA(TAB)       &kp LG(Q)  &kp LC(LS(TAB))  &kp LG(LS(A))   &kp LC(TAB)  &kp LC(UP_ARROW)     &kp PG_UP      &kp LA(LEFT_ARROW)  &kp UP_ARROW  &kp LA(RIGHT)  &trans  &kp LG(GRAVE)
 &kp LA(LC(LCMD))  &sk LCMD   &sk LEFT_ALT     &sk LCTRL       &sk LSHIFT   &kp CAPS             &kp PAGE_DOWN  &kp LEFT_ARROW      &kp DOWN      &kp RIGHT      &trans  &trans
 &trans            &trans     &trans           &kp LG(C)       &kp LG(V)    &kp LG(X)            &trans         &kp LG(LEFT_ARROW)  &trans        &kp LG(RIGHT)  &trans  &trans
                                               &macro_gui_tab  &caps_word   &kp LA(BACKSPACE)    &trans         &trans              &trans
